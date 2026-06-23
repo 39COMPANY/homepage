@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="ja" id="html-root">
+<head>
+  <meta charset="UTF-8">
+  <!-- Security Headers -->
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; script-src 'self' 'unsafe-inline'; img-src 'self' data:; connect-src 'none'; frame-src 'none'; object-src 'none'; base-uri 'self'; form-action 'self';">
+  <meta http-equiv="X-Content-Type-Options" content="nosniff">
+  <meta http-equiv="X-Frame-Options" content="DENY">
+  <meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin">
+  <meta http-equiv="Permissions-Policy" content="camera=(), microphone=(), geolocation=(), payment=()">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex, follow">
+  <meta name="author" content="株式会社39COMPANY">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@300;400;500;700&family=Noto+Sans+JP:wght@300;400;500;700&display=swap" rel="stylesheet">
+  <meta name="description" content="株式会社39COMPANYの会社概要と代表取締役三栗一二からのメッセージ。和歌山田辺市の梅農家に生まれ、梅を世界へ届ける挑戦。">
+  <meta property="og:title" content="会社概要・代表メッセージ｜株式会社39COMPANY">
+  <meta property="og:description" content="株式会社39COMPANYの会社概要と代表取締役三栗一二からのメッセージ。和歌山田辺市の梅農家に生まれ、梅を世界へ届ける挑戦。">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="ja_JP">
+  <title>会社概要・代表メッセージ｜株式会社39COMPANY</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --ink:     #1a1208;
+      --washi:   #f7f3ec;
+      --washi2:  #ede8de;
+      --washi3:  #e2dbd0;
+      --beni:    #9b1f2e;
+      --kincha:  #8b6914;
+      --mid:     #5a5040;
+      --light:   rgba(90,80,64,0.15);
+      --gold:    #c9a84c;
+    }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Noto Serif JP','Yu Mincho','YuMincho',serif;
+      background: var(--washi);
+      color: var(--ink);
+      line-height: 1.9;
+      font-size: 16px;
+    }
+    .lang-ja [data-en], .lang-en [data-ja] { display: none !important; }
+    .lang-ja [data-ja], .lang-en [data-en] { display: revert; }
+
+    /* HEADER */
+    header {
+      position: fixed; top:0; left:0; right:0; z-index:100;
+      background: rgba(247,243,236,0.97);
+      border-bottom: 2px solid var(--beni);
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0 5vw; height: 90px;
+    }
+    .header-logo img { height: 70px; width: auto; }
+    .header-right { display: flex; align-items: center; gap: 1.5rem; }
+    
+    .lang-switcher { display:flex; align-items:center; border:1px solid var(--beni); overflow:hidden; flex-shrink:0; }
+    .lang-btn { background:transparent; border:none; cursor:pointer; font-size:0.72rem; font-weight:600; letter-spacing:0.15em; padding:0.3rem 0.7rem; color:var(--beni); font-family:'Noto Sans JP',sans-serif; transition:background 0.2s,color 0.2s; }
+    .lang-btn.active { background:var(--beni); color:var(--washi); }
+    .hamburger { display:none; flex-direction:column; justify-content:center; gap:6px; width:36px; height:36px; background:none; border:none; cursor:pointer; padding:4px; }
+    .hamburger span { display:block; width:100%; height:2px; background:var(--ink); transition:transform 0.3s,opacity 0.3s; }
+    .hamburger.open span:nth-child(1){ transform:translateY(8px) rotate(45deg); }
+    .hamburger.open span:nth-child(2){ opacity:0; }
+    .hamburger.open span:nth-child(3){ transform:translateY(-8px) rotate(-45deg); }
+    .mobile-nav { display:none; position:fixed; top:90px; left:0; right:0; background:rgba(247,243,236,0.99); border-bottom:1px solid rgba(155,31,46,0.3); z-index:99; padding:1rem 5vw 1.5rem; flex-direction:column; }
+    .mobile-nav.open { display:flex; }
+    .mobile-nav a { text-decoration:none; color:var(--ink); font-size:0.95rem; letter-spacing:0.15em; padding:0.85rem 0; border-bottom:1px solid var(--light); display:flex; align-items:center; gap:0.8rem; }
+    .mobile-nav a::before { content:'—'; color:var(--beni); font-size:0.7rem; }
+    .mobile-nav a:last-child { border-bottom:none; }
+
+    /* SECTIONS */
+    section { padding: 90px 8vw; }
+    .section-eyebrow { font-family:'Noto Sans JP',sans-serif; font-size:0.65rem; letter-spacing:0.45em; text-transform:uppercase; color:var(--beni); font-weight:500; }
+    h2 { font-family:'Noto Serif JP',serif; font-size:clamp(1.5rem,3.5vw,2.4rem); font-weight:300; line-height:1.4; letter-spacing:0.12em; color:var(--ink); margin-bottom:2rem; }
+    .section-header { margin-bottom:3rem; }
+    .wa-rule { display:flex; align-items:center; gap:1rem; margin-top:0.8rem; }
+    .wa-rule::before,.wa-rule::after { content:''; flex:1; height:1px; background:var(--beni); opacity:0.4; }
+    .wa-rule span { font-size:0.65rem; letter-spacing:0.4em; text-transform:uppercase; color:var(--beni); font-family:'Noto Sans JP',sans-serif; font-weight:500; white-space:nowrap; }
+    .wa-pattern { position:relative; }
+    .wa-pattern::after { content:''; position:absolute; inset:0; background-image: repeating-linear-gradient(60deg,rgba(139,105,20,0.06) 0,rgba(139,105,20,0.06) 1px,transparent 0,transparent 50%), repeating-linear-gradient(120deg,rgba(139,105,20,0.06) 0,rgba(139,105,20,0.06) 1px,transparent 0,transparent 50%), repeating-linear-gradient(0deg,rgba(139,105,20,0.06) 0,rgba(139,105,20,0.06) 1px,transparent 0,transparent 50%); background-size:20px 34.6px; pointer-events:none; z-index:0; }
+    .wa-pattern > * { position:relative; z-index:1; }
+
+    /* FOOTER */
+    footer { background:#0d0a05; color:rgba(247,243,236,0.3); text-align:center; padding:3rem 5vw; font-family:'Noto Sans JP',sans-serif; font-size:0.75rem; letter-spacing:0.15em; }
+    .footer-logo { height:28px; opacity:0.25; filter:invert(1); margin-bottom:1.2rem; }
+    .footer-divider { width:40px; height:1px; background:rgba(201,168,76,0.3); margin:1rem auto; }
+    footer p { margin-bottom:0.3rem; line-height:1.8; }
+    .footer-copy { margin-top:1.2rem; font-size:0.65rem; color:rgba(247,243,236,0.18); line-height:1.8; }
+
+    /* PAGE HERO (サブページ用) */
+    .page-hero {
+      min-height: 30vh; display:flex; flex-direction:column; align-items:center; justify-content:center;
+      background: var(--ink); color:var(--washi); text-align:center;
+      padding: 120px 5vw 60px; position:relative; overflow:hidden;
+    }
+    .page-hero::before { content:''; position:absolute; inset:0; background-image: repeating-linear-gradient(0deg,rgba(201,168,76,0.04) 0,rgba(201,168,76,0.04) 1px,transparent 0,transparent 40px), repeating-linear-gradient(90deg,rgba(201,168,76,0.04) 0,rgba(201,168,76,0.04) 1px,transparent 0,transparent 40px); pointer-events:none; }
+    .page-hero > * { position:relative; z-index:1; }
+    .page-hero .section-eyebrow { color:var(--gold); margin-bottom:0.8rem; }
+    .page-hero h1 { font-family:'Noto Serif JP',serif; font-size:clamp(1.6rem,4vw,2.8rem); font-weight:300; letter-spacing:0.2em; color:var(--washi); }
+    .page-hero .page-rule { width:40px; height:1px; background:var(--gold); margin:1.2rem auto 0; opacity:0.6; }
+
+    /* BREADCRUMB */
+    .breadcrumb { padding:1rem 8vw; font-family:'Noto Sans JP',sans-serif; font-size:0.75rem; color:var(--mid); letter-spacing:0.1em; display:flex; gap:0.5rem; align-items:center; background:var(--washi2); border-bottom:1px solid var(--light); }
+    .breadcrumb a { color:var(--beni); text-decoration:none; }
+    .breadcrumb a:hover { text-decoration:underline; }
+    .breadcrumb span { opacity:0.5; }
+
+    /* RESPONSIVE */
+    @media (max-width:900px) { .about-grid { grid-template-columns:1fr; } .services-grid { grid-template-columns:1fr 1fr; } }
+    @media (max-width:600px) {
+      header { padding:0 4vw; height:80px; }
+      .header-logo img { height:58px; }
+      .mobile-nav { top:80px; }
+      section { padding:60px 5vw; }
+      .services-grid { grid-template-columns:1fr; }
+      .service-card { padding:1.8rem; }
+      .company-table th,.company-table td { padding:0.7rem 0.4rem; font-size:0.82rem; }
+      .page-hero { min-height:22vh; padding:100px 5vw 40px; }
+    }
+    @media (max-width:380px) { .lang-btn { padding:0.25rem 0.5rem; font-size:0.68rem; } .header-logo img { height:50px; } }
+
+    /* 代表メッセージ */
+    #message { background:var(--ink); color:var(--washi); position:relative; overflow:hidden; }
+    #message::before { content:''; position:absolute; inset:0; background-image:repeating-linear-gradient(0deg,rgba(201,168,76,0.03) 0,rgba(201,168,76,0.03) 1px,transparent 0,transparent 40px),repeating-linear-gradient(90deg,rgba(201,168,76,0.03) 0,rgba(201,168,76,0.03) 1px,transparent 0,transparent 40px); pointer-events:none; }
+    #message > * { position:relative; z-index:1; }
+    #message .section-eyebrow { color:var(--gold); }
+    #message h2 { color:var(--washi); }
+    #message .wa-rule::before,#message .wa-rule::after { background:var(--gold); opacity:0.3; }
+    #message .wa-rule span { color:var(--gold); }
+
+    .message-inner { max-width:720px; margin:0 auto; }
+    .message-lead { font-size:clamp(1.05rem,2.5vw,1.25rem); font-weight:300; letter-spacing:0.15em; color:rgba(247,243,236,0.9); line-height:2; margin-bottom:2.5rem; font-family:'Noto Serif JP',serif; }
+    .message-body { display:flex; flex-direction:column; gap:1.8rem; }
+    .message-body p { font-size:0.97rem; color:rgba(247,243,236,0.72); line-height:2.2; letter-spacing:0.07em; }
+    .message-accent { font-family:'Noto Serif JP',serif; font-size:clamp(1.1rem,2.5vw,1.4rem); font-weight:300; color:var(--gold) !important; letter-spacing:0.2em; text-align:center; padding:2rem 0; border-top:1px solid rgba(201,168,76,0.2); border-bottom:1px solid rgba(201,168,76,0.2); }
+    .message-sign { text-align:right; margin-top:2.5rem; }
+    .message-sign p { font-family:'Noto Serif JP',serif; font-size:0.95rem; color:rgba(247,243,236,0.55); letter-spacing:0.15em; margin-bottom:0.3rem; }
+    .message-sign strong { font-size:1.15rem; color:rgba(247,243,236,0.85); font-weight:400; letter-spacing:0.2em; }
+
+    /* 会社概要 */
+    #company-profile { background:var(--washi3); }
+    .about-grid { display:grid; grid-template-columns:1fr; gap:2rem; max-width:720px; }
+    .company-table { width:100%; border-collapse:collapse; margin-top:1rem; }
+    .company-table th,.company-table td { padding:0.9rem 0.8rem; text-align:left; font-size:0.88rem; border-bottom:1px solid var(--light); letter-spacing:0.05em; }
+    .company-table th { color:var(--mid); font-weight:400; width:38%; font-family:'Noto Sans JP',sans-serif; }
+    .company-table td { color:var(--ink); }
+    @media(max-width:900px){ .about-grid { grid-template-columns:1fr; gap:3rem; } }
+    @media(max-width:600px){ .company-table th,.company-table td { padding:0.7rem 0.4rem; font-size:0.82rem; } }
+    /* デスクトップ: ロゴ横にナビ表示 */
+    header nav { display:block; }
+    header nav ul { list-style:none; display:flex; gap:2rem; }
+    header nav a { text-decoration:none; color:var(--ink); font-family:'Noto Sans JP',sans-serif; font-size:0.8rem; font-weight:500; letter-spacing:0.12em; transition:color 0.2s; }
+    header nav a:hover { color:var(--beni); }
+    /* スマホ: ハンバーガー表示、デスクトップnav非表示 */
+    @media (max-width:900px) {
+      header nav { display:none; }
+      .hamburger { display:flex !important; }
+    }
+  </style>
+</head>
+<body class="lang-ja">
+  <header>
+    <a href="index.html" class="header-logo" aria-label="株式会社39COMPANY トップ">
+      <img src="assets/logo.png" alt="39CO ロゴ">
+    </a>
+    <div class="header-right">
+      <nav aria-label="ナビゲーション"><ul>
+          <li><a href="news.html"><span data-ja>ニュース</span><span data-en>News</span></a></li>
+          <li><a href="services.html"><span data-ja>事業内容</span><span data-en>Services</span></a></li>
+          <li><a href="about.html"><span data-ja>会社概要</span><span data-en>About</span></a></li>
+          <li><a href="index.html#contact"><span data-ja>お問い合わせ</span><span data-en>Contact</span></a></li>
+      </ul></nav>
+      <div class="lang-switcher" role="group" aria-label="言語切替">
+        <button class="lang-btn active" id="btn-ja" onclick="setLang('ja')" aria-label="日本語">JP</button>
+        <button class="lang-btn" id="btn-en" onclick="setLang('en')" aria-label="English">EN</button>
+      </div>
+      <button class="hamburger" id="hamburger" aria-label="メニューを開く" onclick="toggleMenu()">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+  <nav class="mobile-nav" id="mobile-nav" aria-label="モバイルナビ">
+    <a href="index.html#news" onclick="closeMenu()"><span data-ja>ニュース</span><span data-en>News</span></a>
+    <a href="services.html" onclick="closeMenu()"><span data-ja>事業内容</span><span data-en>Services</span></a>
+    <a href="about.html" onclick="closeMenu()"><span data-ja>会社概要</span><span data-en>About</span></a>
+    <a href="index.html#contact" onclick="closeMenu()"><span data-ja>お問い合わせ</span><span data-en>Contact</span></a>
+  </nav>
+
+  <div class="page-hero">
+    <p class="section-eyebrow">Company</p>
+    <h1><span data-ja>会社概要</span><span data-en>About Us</span></h1>
+    <div class="page-rule"></div>
+  </div>
+
+  <nav class="breadcrumb" aria-label="パンくず">
+    <a href="index.html"><span data-ja>ホーム</span><span data-en>Home</span></a>
+    <span>›</span>
+    <span><span data-ja>会社概要</span><span data-en>About</span></span>
+  </nav>
+
+  <!-- 代表メッセージ -->
+  <section id="message" aria-labelledby="message-heading">
+    <div class="message-inner">
+      <div class="section-header">
+        <p class="section-eyebrow">Message</p>
+        <h2 id="message-heading">
+          <span data-ja>代表メッセージ</span>
+          <span data-en>Message from the CEO</span>
+        </h2>
+        <div class="wa-rule"><span>Message</span></div>
+      </div>
+
+      <p class="message-lead">
+        <span data-ja>田辺から世界へ。<br>世界に、梅という新しい健康習慣を届ける。</span>
+        <span data-en>From Tanabe to the World.<br>Delivering ume as a new health habit to the world.</span>
+      </p>
+
+      <div class="message-body">
+        <p>
+          <span data-ja>私は和歌山県田辺市の梅農家の家に生まれ、幼い頃から梅が当たり前にある食卓で育ちました。</span>
+          <span data-en>I was born into a ume farming family in Tanabe City, Wakayama, and grew up with ume as a natural part of every meal.</span>
+        </p>
+        <p>
+          <span data-ja>私にとって梅は、単なる食品ではありません。家族の歴史であり、地域の文化であり、人々の健康を支えてきた大切な存在です。</span>
+          <span data-en>To me, ume is more than just a food. It is a family history, a regional culture, and a precious presence that has supported people's health for generations.</span>
+        </p>
+        <p>
+          <span data-ja>梅は古くから健康を支える食文化として日本に根付き、その起源は漢方にもつながると言われています。先人たちは、日々の暮らしの中で梅を取り入れ、その価値を受け継いできました。</span>
+          <span data-en>Ume has long been rooted in Japanese food culture as a health-supporting ingredient, with origins said to trace back to traditional Chinese medicine. Our ancestors incorporated ume into their daily lives and passed down its value through generations.</span>
+        </p>
+        <p>
+          <span data-ja>しかし、日本では当たり前に親しまれている梅も、世界ではまだ十分に知られていません。</span>
+          <span data-en>Yet despite being a beloved staple in Japan, ume remains largely unknown to the rest of the world.</span>
+        </p>
+        <p>
+          <span data-ja>私は幼い頃から、「いつか梅をはじめとする和歌山の食文化を世界に発信したい」という想いを抱いてきました。</span>
+          <span data-en>Since childhood, I have carried a dream: to one day share the food culture of Wakayama — starting with ume — with the world.</span>
+        </p>
+        <p>
+          <span data-ja>和歌山県田辺市は、日本一の梅の産地です。この地域が育んできた食文化や価値を世界へ届けることで、地域に新たな可能性を生み出し、故郷の未来につなげていきたいと考えています。</span>
+          <span data-en>Tanabe City in Wakayama Prefecture is Japan's foremost ume-producing region. By bringing the food culture and values nurtured here to the world, I hope to create new possibilities for this community and connect its heritage to the future.</span>
+        </p>
+        <p class="message-accent">
+          <span data-ja>私たちの使命は、梅を通じて人々の健康と豊かな暮らしに貢献すること。<br>そして、梅をきっかけに和歌山の魅力を伝え、<br>その先に日本の食文化そのものを世界へ発信し続けることです。</span>
+          <span data-en>Our mission is to contribute to people's health and a richer way of life through ume.<br>And through ume, to share the appeal of Wakayama with the world,<br>and beyond that, to continue spreading Japanese food culture itself across the globe.</span>
+        </p>
+        <p>
+          <span data-ja>それが私たちの挑戦です。</span>
+          <span data-en>That is our challenge.</span>
+        </p>
+      </div>
+
+      <div class="message-sign">
+        <p><span data-ja>株式会社39COMPANY</span><span data-en>39COMPANY Inc.</span></p>
+        <p><span data-ja>代表取締役</span><span data-en>Representative Director</span></p>
+        <strong><span data-ja>三栗 一二</span><span data-en>Kazuji Mikuri</span></strong>
+      </div>
+    </div>
+  </section>
+
+  <!-- 会社概要テーブル -->
+  <section id="company-profile" aria-labelledby="profile-heading">
+    <div class="about-grid">
+      <div>
+        <div class="section-header">
+          <p class="section-eyebrow">Company</p>
+          <h2 id="profile-heading">
+            <span data-ja>会社概要</span>
+            <span data-en>Company Profile</span>
+          </h2>
+          <div class="wa-rule"><span>Profile</span></div>
+        </div>
+        <table class="company-table" aria-label="会社基本情報">
+          <tbody>
+            <tr>
+              <th scope="row"><span data-ja>会社法人等番号</span><span data-en>Corp. Number</span></th>
+              <td>3600-01-026622</td>
+            </tr>
+            <tr>
+              <th scope="row"><span data-ja>商号</span><span data-en>Company Name</span></th>
+              <td><span data-ja>株式会社39COMPANY</span><span data-en>39COMPANY Inc.</span></td>
+            </tr>
+            <tr>
+              <th scope="row"><span data-ja>本店</span><span data-en>Headquarters</span></th>
+              <td><span data-ja>和歌山県田辺市中三栖1880番地</span><span data-en>1880 Nakamisu, Tanabe, Wakayama, Japan</span></td>
+            </tr>
+            <tr>
+              <th scope="row"><span data-ja>代表取締役</span><span data-en>Representative</span></th>
+              <td><span data-ja>三栗一二</span><span data-en>Kazuji Mikuri</span></td>
+            </tr>
+            <tr>
+              <th scope="row"><span data-ja>事業内容</span><span data-en>Business</span></th>
+              <td><span data-ja>食品の企画、製造及び輸出入</span><span data-en>Planning, manufacturing, and import/export of food products</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      </div>
+    </div>
+  </section>
+  <footer>
+    <img class="footer-logo" src="assets/logo.png" alt="39CO ロゴ" width="90">
+    <div class="footer-divider"></div>
+    <p>TOKYO &amp; WAKAYAMA, JAPAN</p>
+    <p>© 2019–2026 株式会社39COMPANY. All rights reserved.</p>
+    <p class="footer-copy">Unauthorized reproduction or republication of content from this website is strictly prohibited.</p>
+  </footer>
+  <script>
+    function setLang(lang) {
+      document.body.className = 'lang-' + lang;
+      var r = document.getElementById('html-root');
+      if(r) r.lang = lang;
+      var bja = document.getElementById('btn-ja');
+      var ben = document.getElementById('btn-en');
+      if(bja) bja.classList.toggle('active', lang==='ja');
+      if(ben) ben.classList.toggle('active', lang==='en');
+      localStorage.setItem('39co-lang', lang);
+    }
+    (function(){
+      var saved = localStorage.getItem('39co-lang');
+      if(saved==='en') setLang('en');
+    })();
+    function toggleMenu(){
+      document.getElementById('hamburger').classList.toggle('open');
+      document.getElementById('mobile-nav').classList.toggle('open');
+    }
+    function closeMenu(){
+      document.getElementById('hamburger').classList.remove('open');
+      document.getElementById('mobile-nav').classList.remove('open');
+    }
+    window.addEventListener('resize',function(){ if(window.innerWidth>900) closeMenu(); });
+  </script>
+</body>
+</html>
