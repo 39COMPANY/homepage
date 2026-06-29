@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html lang="ja" id="html-root">
+<head>
+  <meta charset="UTF-8">
+  <!-- Security Headers -->
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; script-src 'self' 'unsafe-inline'; img-src 'self' data:; connect-src 'none'; frame-src 'none'; object-src 'none'; base-uri 'self'; form-action 'self';">
+  <meta http-equiv="X-Content-Type-Options" content="nosniff">
+  <meta http-equiv="X-Frame-Options" content="DENY">
+  <meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin">
+  <meta http-equiv="Permissions-Policy" content="camera=(), microphone=(), geolocation=(), payment=()">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="index, follow">
+  <meta name="author" content="株式会社39COMPANY">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@300;400;500;700&family=Noto+Sans+JP:wght@300;400;500;700&display=swap" rel="stylesheet">
+  <meta name="description" content="和歌山と東京を拠点に、日本の食文化を世界へ届ける専門企業。2019年設立。">
+  <meta property="og:title" content="株式会社39COMPANY｜日本の食文化を世界に">
+  <meta property="og:description" content="和歌山と東京を拠点に、日本の食文化を世界へ届ける専門企業。2019年設立。">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="ja_JP">
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon-16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/favicon-180.png">
+  <title>株式会社39COMPANY｜日本の食文化を世界に</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --ink:     #1a1208;
+      --washi:   #f7f3ec;
+      --washi2:  #ede8de;
+      --washi3:  #e2dbd0;
+      --beni:    #9b1f2e;
+      --kincha:  #8b6914;
+      --mid:     #5a5040;
+      --light:   rgba(90,80,64,0.15);
+      --gold:    #c9a84c;
+    }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Noto Serif JP','Yu Mincho','YuMincho',serif;
+      background: var(--washi);
+      color: var(--ink);
+      line-height: 1.9;
+      font-size: 16px;
+    }
+    .lang-ja [data-en], .lang-en [data-ja] { display: none !important; }
+    .lang-ja [data-ja], .lang-en [data-en] { display: revert; }
+
+    /* HEADER */
+    header {
+      position: fixed; top:0; left:0; right:0; z-index:100;
+      background: rgba(247,243,236,0.97);
+      border-bottom: 2px solid var(--beni);
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0 5vw; height: 90px;
+    }
+    .header-logo img { height: 70px; width: auto; }
+    .header-right { display: flex; align-items: center; gap: 1.5rem; }
+    
+    .lang-switcher { display:flex; align-items:center; border:1px solid var(--beni); overflow:hidden; flex-shrink:0; }
+    .lang-btn { background:transparent; border:none; cursor:pointer; font-size:0.72rem; font-weight:600; letter-spacing:0.15em; padding:0.3rem 0.7rem; color:var(--beni); font-family:'Noto Sans JP',sans-serif; transition:background 0.2s,color 0.2s; }
+    .lang-btn.active { background:var(--beni); color:var(--washi); }
+    .hamburger { display:none; flex-direction:column; justify-content:center; gap:6px; width:36px; height:36px; background:none; border:none; cursor:pointer; padding:4px; }
+    .hamburger span { display:block; width:100%; height:2px; background:var(--ink); transition:transform 0.3s,opacity 0.3s; }
+    .hamburger.open span:nth-child(1){ transform:translateY(8px) rotate(45deg); }
+    .hamburger.open span:nth-child(2){ opacity:0; }
+    .hamburger.open span:nth-child(3){ transform:translateY(-8px) rotate(-45deg); }
+    .mobile-nav { display:none; position:fixed; top:90px; left:0; right:0; background:rgba(247,243,236,0.99); border-bottom:1px solid rgba(155,31,46,0.3); z-index:99; padding:1rem 5vw 1.5rem; flex-direction:column; }
+    .mobile-nav.open { display:flex; }
+    .mobile-nav a { text-decoration:none; color:var(--ink); font-size:0.95rem; letter-spacing:0.15em; padding:0.85rem 0; border-bottom:1px solid var(--light); display:flex; align-items:center; gap:0.8rem; }
+    .mobile-nav a::before { content:'—'; color:var(--beni); font-size:0.7rem; }
+    .mobile-nav a:last-child { border-bottom:none; }
+
+    /* SECTIONS */
+    section { padding: 90px 8vw; }
+    .section-eyebrow { font-family:'Noto Sans JP',sans-serif; font-size:0.65rem; letter-spacing:0.45em; text-transform:uppercase; color:var(--beni); font-weight:500; }
+    h2 { font-family:'Noto Serif JP',serif; font-size:clamp(1.5rem,3.5vw,2.4rem); font-weight:300; line-height:1.4; letter-spacing:0.12em; color:var(--ink); margin-bottom:2rem; }
+    .section-header { margin-bottom:3rem; }
+    .wa-rule { display:flex; align-items:center; gap:1rem; margin-top:0.8rem; }
+    .wa-rule::before,.wa-rule::after { content:''; flex:1; height:1px; background:var(--beni); opacity:0.4; }
+    .wa-rule span { font-size:0.65rem; letter-spacing:0.4em; text-transform:uppercase; color:var(--beni); font-family:'Noto Sans JP',sans-serif; font-weight:500; white-space:nowrap; }
+    .wa-pattern { position:relative; }
+    .wa-pattern::after { content:''; position:absolute; inset:0; background-image: repeating-linear-gradient(60deg,rgba(139,105,20,0.06) 0,rgba(139,105,20,0.06) 1px,transparent 0,transparent 50%), repeating-linear-gradient(120deg,rgba(139,105,20,0.06) 0,rgba(139,105,20,0.06) 1px,transparent 0,transparent 50%), repeating-linear-gradient(0deg,rgba(139,105,20,0.06) 0,rgba(139,105,20,0.06) 1px,transparent 0,transparent 50%); background-size:20px 34.6px; pointer-events:none; z-index:0; }
+    .wa-pattern > * { position:relative; z-index:1; }
+
+    /* FOOTER */
+    footer { background:#0d0a05; color:rgba(247,243,236,0.3); text-align:center; padding:3rem 5vw; font-family:'Noto Sans JP',sans-serif; font-size:0.75rem; letter-spacing:0.15em; }
+    .footer-logo { height:28px; opacity:0.25; filter:invert(1); margin-bottom:1.2rem; }
+    .footer-divider { width:40px; height:1px; background:rgba(201,168,76,0.3); margin:1rem auto; }
+    footer p { margin-bottom:0.3rem; line-height:1.8; }
+    .footer-copy { margin-top:1.2rem; font-size:0.65rem; color:rgba(247,243,236,0.18); line-height:1.8; }
+
+    /* PAGE HERO (サブページ用) */
+    .page-hero {
+      min-height: 30vh; display:flex; flex-direction:column; align-items:center; justify-content:center;
+      background: var(--ink); color:var(--washi); text-align:center;
+      padding: 120px 5vw 60px; position:relative; overflow:hidden;
+    }
+    .page-hero::before { content:''; position:absolute; inset:0; background-image: repeating-linear-gradient(0deg,rgba(201,168,76,0.04) 0,rgba(201,168,76,0.04) 1px,transparent 0,transparent 40px), repeating-linear-gradient(90deg,rgba(201,168,76,0.04) 0,rgba(201,168,76,0.04) 1px,transparent 0,transparent 40px); pointer-events:none; }
+    .page-hero > * { position:relative; z-index:1; }
+    .page-hero .section-eyebrow { color:var(--gold); margin-bottom:0.8rem; }
+    .page-hero h1 { font-family:'Noto Serif JP',serif; font-size:clamp(1.6rem,4vw,2.8rem); font-weight:300; letter-spacing:0.2em; color:var(--washi); }
+    .page-hero .page-rule { width:40px; height:1px; background:var(--gold); margin:1.2rem auto 0; opacity:0.6; }
+
+    /* BREADCRUMB */
+    .breadcrumb { padding:1rem 8vw; font-family:'Noto Sans JP',sans-serif; font-size:0.75rem; color:var(--mid); letter-spacing:0.1em; display:flex; gap:0.5rem; align-items:center; background:var(--washi2); border-bottom:1px solid var(--light); }
+    .breadcrumb a { color:var(--beni); text-decoration:none; }
+    .breadcrumb a:hover { text-decoration:underline; }
+    .breadcrumb span { opacity:0.5; }
+
+    /* RESPONSIVE */
+    @media (max-width:900px) { .about-grid { grid-template-columns:1fr; } .services-grid { grid-template-columns:1fr 1fr; } }
+    @media (max-width:600px) {
+      header { padding:0 4vw; height:80px; }
+      .header-logo img { height:58px; }
+      .mobile-nav { top:80px; }
+      section { padding:60px 5vw; }
+      .services-grid { grid-template-columns:1fr; }
+      .service-card { padding:1.8rem; }
+      .company-table th,.company-table td { padding:0.7rem 0.4rem; font-size:0.82rem; }
+      .page-hero { min-height:22vh; padding:100px 5vw 40px; }
+    }
+    @media (max-width:380px) { .lang-btn { padding:0.25rem 0.5rem; font-size:0.68rem; } .header-logo img { height:50px; } }
+
+    /* HERO */
+    #hero { min-height:100vh; display:flex; flex-direction:column; align-items:center; justify-content:center; text-align:center; padding:100px 5vw 60px; background:var(--ink); color:var(--washi); position:relative; overflow:hidden; }
+    .hero-bg-img { position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:center; z-index:0; }
+    #hero::before { content:''; position:absolute; inset:0; background:rgba(15,8,3,0.60); z-index:1; }
+    #hero::after { content:''; position:absolute; top:0; bottom:0; left:5vw; width:1px; background:linear-gradient(to bottom,transparent,rgba(201,168,76,0.5) 20%,rgba(201,168,76,0.5) 80%,transparent); z-index:2; }
+    .hero-inner { position:relative; z-index:3; display:flex; flex-direction:column; align-items:center; }
+    .hero-tagline { font-family:'Noto Sans JP',sans-serif; font-size:clamp(0.7rem,1.8vw,0.85rem); letter-spacing:0.35em; color:rgba(247,243,236,0.6); margin-bottom:1.5rem; font-weight:300; }
+    .hero-tagline-jp { font-family:'Noto Serif JP',serif; font-size:clamp(2rem,5.5vw,3.6rem); font-weight:300; letter-spacing:0.35em; color:var(--washi); margin-bottom:1.5rem; line-height:1.4; }
+    .hero-divider { width:40px; height:1px; background:var(--gold); margin:0 auto 1.5rem; opacity:0.7; }
+    .hero-sub { font-family:'Noto Sans JP',sans-serif; font-size:clamp(0.7rem,1.5vw,0.8rem); color:rgba(247,243,236,0.45); letter-spacing:0.25em; font-weight:300; }
+    .scroll-hint { position:absolute; bottom:2.5rem; left:50%; transform:translateX(-50%); display:flex; flex-direction:column; align-items:center; gap:0.5rem; font-family:'Noto Sans JP',sans-serif; font-size:0.6rem; letter-spacing:0.35em; color:rgba(247,243,236,0.3); text-transform:uppercase; z-index:3; }
+    .scroll-hint span { display:block; width:1px; height:50px; background:linear-gradient(to bottom,rgba(201,168,76,0.6),transparent); animation:scrollLine 2s ease-in-out infinite; }
+    @keyframes scrollLine { 0%{transform:scaleY(0);transform-origin:top;opacity:1} 50%{transform:scaleY(1);transform-origin:top;opacity:1} 100%{transform:scaleY(1);transform-origin:top;opacity:0} }
+
+    /* NEWS */
+    #news { background:var(--ink); color:var(--washi); padding:60px 8vw; }
+    #news .section-eyebrow { color:var(--gold); }
+    #news h2 { color:var(--washi); font-size:clamp(1rem,2vw,1.2rem); font-weight:400; margin-bottom:0; }
+    .news-header-row { display:flex; align-items:baseline; justify-content:space-between; border-bottom:1px solid rgba(201,168,76,0.3); padding-bottom:0.8rem; }
+    .news-list { display:flex; flex-direction:column; }
+    .news-item { display:grid; grid-template-columns:130px 72px 1fr; align-items:baseline; gap:0 2rem; padding:1.1rem 0; border-bottom:1px solid rgba(247,243,236,0.08); text-decoration:none; color:inherit; transition:background 0.2s,padding 0.2s; }
+    .news-item:hover { background:rgba(255,255,255,0.03); padding-left:0.6rem; }
+    .news-date { font-family:'Noto Sans JP',sans-serif; font-size:0.78rem; color:rgba(247,243,236,0.45); letter-spacing:0.08em; white-space:nowrap; }
+    .news-tag { display:inline-block; font-family:'Noto Sans JP',sans-serif; font-size:0.62rem; font-weight:500; letter-spacing:0.15em; color:var(--gold); border:1px solid rgba(201,168,76,0.5); padding:0.1rem 0.45rem; white-space:nowrap; }
+    .news-title { font-size:0.9rem; color:rgba(247,243,236,0.85); line-height:1.6; letter-spacing:0.05em; }
+    @media(max-width:600px){
+      #news { padding:50px 5vw; }
+      .news-item { grid-template-columns:1fr auto; grid-template-rows:auto auto; gap:0.3rem 0.8rem; }
+      .news-tag { grid-column:2; grid-row:1; }
+      .news-title { grid-column:1/-1; grid-row:2; font-size:0.88rem; }
+    }
+
+    /* MISSION */
+    #mission { background:var(--washi); max-width:780px; margin:0 auto; }
+    .mission-text p { font-size:0.97rem; color:var(--mid); margin-bottom:1.4rem; line-height:2; letter-spacing:0.06em; }
+    @media(max-width:900px){ #mission { grid-template-columns:1fr; } }
+    @media(max-width:600px){ }
+
+    /* CONTACT */
+    #contact { background:var(--ink); color:var(--washi); text-align:center; position:relative; overflow:hidden; padding:90px 8vw; }
+    #contact::before { content:''; position:absolute; inset:0; background-image:repeating-linear-gradient(0deg,rgba(201,168,76,0.04) 0,rgba(201,168,76,0.04) 1px,transparent 0,transparent 40px),repeating-linear-gradient(90deg,rgba(201,168,76,0.04) 0,rgba(201,168,76,0.04) 1px,transparent 0,transparent 40px); pointer-events:none; }
+    #contact > * { position:relative; z-index:1; }
+    #contact .section-eyebrow { color:var(--gold); }
+    #contact h2 { color:var(--washi); }
+    #contact .wa-rule::before,#contact .wa-rule::after { background:var(--gold); opacity:0.3; }
+    #contact .wa-rule span { color:var(--gold); }
+    .contact-desc { color:rgba(247,243,236,0.6); font-size:0.97rem; margin-bottom:3rem; max-width:480px; margin-left:auto; margin-right:auto; letter-spacing:0.08em; line-height:2; }
+    .contact-link { display:inline-block; border:1px solid rgba(201,168,76,0.6); color:var(--gold); text-decoration:none; padding:1rem 3.5rem; font-family:'Noto Sans JP',sans-serif; font-size:0.82rem; letter-spacing:0.25em; font-weight:400; position:relative; overflow:hidden; transition:color 0.3s; }
+    .contact-link::before { content:''; position:absolute; inset:0; background:var(--beni); transform:scaleX(0); transform-origin:left; transition:transform 0.3s; z-index:-1; }
+    .contact-link:hover { color:var(--washi); border-color:var(--beni); }
+    .contact-link:hover::before { transform:scaleX(1); }
+    .contact-email-note { margin-top:1.5rem; font-family:'Noto Sans JP',sans-serif; font-size:0.78rem; color:rgba(247,243,236,0.35); letter-spacing:0.1em; }
+
+    /* CONTACT */
+    #contact { background:var(--ink); color:var(--washi); text-align:center; position:relative; overflow:hidden; padding:90px 8vw; }
+    #contact::before { content:''; position:absolute; inset:0; background-image:repeating-linear-gradient(0deg,rgba(201,168,76,0.04) 0,rgba(201,168,76,0.04) 1px,transparent 0,transparent 40px),repeating-linear-gradient(90deg,rgba(201,168,76,0.04) 0,rgba(201,168,76,0.04) 1px,transparent 0,transparent 40px); pointer-events:none; }
+    #contact > * { position:relative; z-index:1; }
+    #contact .section-eyebrow { color:var(--gold); }
+    #contact h2 { color:var(--washi); }
+    #contact .wa-rule::before,#contact .wa-rule::after { background:var(--gold); opacity:0.3; }
+    #contact .wa-rule span { color:var(--gold); }
+    .contact-desc { color:rgba(247,243,236,0.6); font-size:0.97rem; margin-bottom:3rem; max-width:480px; margin-left:auto; margin-right:auto; letter-spacing:0.08em; line-height:2; }
+    .contact-link { display:inline-block; border:1px solid rgba(201,168,76,0.6); color:var(--gold); text-decoration:none; padding:1rem 3.5rem; font-family:'Noto Sans JP',sans-serif; font-size:0.82rem; letter-spacing:0.25em; font-weight:400; position:relative; overflow:hidden; transition:color 0.3s; }
+    .contact-link::before { content:''; position:absolute; inset:0; background:var(--beni); transform:scaleX(0); transform-origin:left; transition:transform 0.3s; z-index:-1; }
+    .contact-link:hover { color:var(--washi); border-color:var(--beni); }
+    .contact-link:hover::before { transform:scaleX(1); }
+    .contact-email-note { margin-top:1.5rem; font-family:'Noto Sans JP',sans-serif; font-size:0.78rem; color:rgba(247,243,236,0.35); letter-spacing:0.1em; }
+
+    /* BASES */
+    #bases { background:var(--washi2); }
+    .bases-grid { display:grid; grid-template-columns:1fr 1fr; gap:3rem; margin-top:1rem; }
+    .bases-list { display:flex; flex-direction:column; gap:2rem; }
+    .base-item { display:flex; align-items:flex-start; gap:1.2rem; padding-left:0.8rem; border-left:2px solid var(--beni); }
+    .base-item h4 { font-family:'Noto Sans JP',sans-serif; font-size:0.72rem; letter-spacing:0.35em; text-transform:uppercase; color:var(--beni); margin-bottom:0.4rem; }
+    .base-item p { font-size:0.9rem; color:var(--mid); line-height:1.9; }
+    @media(max-width:700px){ .bases-grid { grid-template-columns:1fr; gap:2rem; } }
+    /* デスクトップ: ロゴ横にナビ表示 */
+    header nav { display:block; }
+    header nav ul { list-style:none; display:flex; gap:2rem; }
+    header nav a { text-decoration:none; color:var(--ink); font-family:'Noto Sans JP',sans-serif; font-size:0.8rem; font-weight:500; letter-spacing:0.12em; transition:color 0.2s; }
+    header nav a:hover { color:var(--beni); }
+    /* スマホ: ハンバーガー表示、デスクトップnav非表示 */
+    @media (max-width:900px) {
+      header nav { display:none; }
+      .hamburger { display:flex !important; }
+    }
+
+
+    /* SLIDESHOW */
+    .hero-bg-img,
+    .hero-slide {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+      opacity: 0;
+      z-index: 0;
+      /* will-change でGPUレイヤー確保 */
+      will-change: opacity;
+    }
+    /* アクティブスライド */
+    .hero-slide-active {
+      opacity: 1 !important;
+      z-index: 1 !important;
+    }
+    /* フェードアウト中（z-indexを2にしてアクティブの上に残す） */
+    .hero-slide-leaving {
+      opacity: 0 !important;
+      z-index: 2 !important;
+      transition: opacity 1.0s ease-in-out !important;
+    }
+    /* フェードイン中 */
+    .hero-slide-entering {
+      opacity: 1 !important;
+      z-index: 1 !important;
+      transition: opacity 1.0s ease-in-out !important;
+    }
+  </style>
+</head>
+<body class="lang-ja">
+  <header>
+    <a href="index.html" class="header-logo" aria-label="株式会社39COMPANY トップ">
+      <img src="logo.png" alt="39CO ロゴ">
+    </a>
+    <div class="header-right">
+      <nav aria-label="ナビゲーション"><ul>
+          <li><a href="news.html"><span data-ja>ニュース</span><span data-en>News</span></a></li>
+          <li><a href="services.html"><span data-ja>事業内容</span><span data-en>Services</span></a></li>
+          <li><a href="about.html"><span data-ja>会社概要</span><span data-en>About</span></a></li>
+          <li><a href="index.html#contact"><span data-ja>お問い合わせ</span><span data-en>Contact</span></a></li>
+      </ul></nav>
+      <div class="lang-switcher" role="group" aria-label="言語切替">
+        <button class="lang-btn active" id="btn-ja" onclick="setLang('ja')" aria-label="日本語">JP</button>
+        <button class="lang-btn" id="btn-en" onclick="setLang('en')" aria-label="English">EN</button>
+      </div>
+      <button class="hamburger" id="hamburger" aria-label="メニューを開く" onclick="toggleMenu()">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+  <nav class="mobile-nav" id="mobile-nav" aria-label="モバイルナビ">
+    <a href="news.html" onclick="closeMenu()"><span data-ja>ニュース</span><span data-en>News</span></a>
+    <a href="services.html" onclick="closeMenu()"><span data-ja>事業内容</span><span data-en>Services</span></a>
+    <a href="about.html" onclick="closeMenu()"><span data-ja>会社概要</span><span data-en>About</span></a>
+    <a href="#contact" onclick="closeMenu()"><span data-ja>お問い合わせ</span><span data-en>Contact</span></a>
+  </nav>
+
+  <!-- HERO -->
+  <section id="hero" aria-label="ヒーロー">
+
+    <img class="hero-slide" data-slide src="photo 00.jpeg" alt="" aria-hidden="true">
+    <img class="hero-slide" data-slide src="photo 01.jpeg" alt="" aria-hidden="true">
+    <img class="hero-slide" data-slide src="photo 02.jpeg" alt="" aria-hidden="true">
+    <img class="hero-slide" data-slide src="photo 03.jpeg" alt="" aria-hidden="true">
+    <img class="hero-slide" data-slide src="photo 04.jpeg" alt="" aria-hidden="true">
+    <img class="hero-slide" data-slide src="photo 05.jpeg" alt="" aria-hidden="true">
+    <img class="hero-bg-img" src="photo 06.jpeg" alt="" aria-hidden="true">
+    <div class="hero-inner">
+      <p class="hero-tagline">SINCE 2019 &#xFF5C; TOKYO · WAKAYAMA</p>
+      <h1 class="hero-tagline-jp">
+        <span data-ja>日本の食文化を<br>世界に</span>
+        <span data-en>Japanese Food Culture<br>to the World</span>
+      </h1>
+      <div class="hero-divider" aria-hidden="true"></div>
+      <p class="hero-sub">Bringing Japanese Food Culture to the World</p>
+    </div>
+    <div class="scroll-hint" aria-hidden="true">SCROLL<span></span></div>
+  </section>
+
+  <!-- NEWS -->
+  <!-- ニュース追加方法: .news-item ブロックをコピーして日付・タグ・タイトルを書き換えてください -->
+  <section id="news" aria-labelledby="news-heading">
+    <div class="news-header-row">
+      <div>
+        <p class="section-eyebrow">News</p>
+        <h2 id="news-heading"><span data-ja>お知らせ</span><span data-en>Latest News</span></h2>
+      <a href="news.html" style="font-family:'Noto Sans JP',sans-serif;font-size:0.72rem;letter-spacing:0.2em;color:var(--gold);text-decoration:none;border-bottom:1px solid rgba(201,168,76,0.4);padding-bottom:0.1rem;"><span data-ja>一覧を見る →</span><span data-en>View all →</span></a>
+      </div>
+    </div>
+    <div class="news-list">
+      <!-- ▼ ニュース1件目 ▼ -->
+      <div class="news-item">
+        <span class="news-date">2026.06.17</span>
+        <span class="news-tag">News</span>
+        <span class="news-title">
+          <span data-ja>ウェブサイトをリニューアルしました。</span>
+          <span data-en>Our website has been renewed.</span>
+        </span>
+      </div>
+      <!-- ▼ 追加テンプレート（コピーして使用） ▼
+      <div class="news-item">
+        <span class="news-date">YYYY.MM.DD</span>
+        <span class="news-tag">News</span>
+        <span class="news-title">
+          <span data-ja>タイトルをここに入力</span>
+          <span data-en>Enter title here</span>
+        </span>
+      </div>
+      ▲ コピーここまで ▲ -->
+    </div>
+  </section>
+
+  <!-- MISSION -->
+  <section id="mission" aria-labelledby="mission-heading">
+    <div class="mission-text">
+      <div class="section-header">
+        <p class="section-eyebrow">Our Mission</p>
+        <h2 id="mission-heading">
+          <span data-ja>和歌山から世界へ</span>
+          <span data-en>From Wakayama to the World</span>
+        </h2>
+        <div class="wa-rule"><span>Mission</span></div>
+      </div>
+      <p><span data-ja>株式会社39COMPANYは、2019年の設立以来、和歌山県と東京を拠点に日本が誇る豊かな食文化・食材を世界市場へ届けることに取り組んでいます。</span><span data-en>Since its founding in 2019, 39COMPANY has been dedicated to delivering Japan's rich food culture and finest ingredients to global markets, operating from both Wakayama and Tokyo.</span></p>
+      <p><span data-ja>素材の産地から食卓まで、品質と信頼を一貫してつなぐことで日本の食の魅力をグローバルに発信し、生産者と世界の消費者を結ぶ架け橋となります。</span><span data-en>From farm to table, we connect quality and trust at every step — bridging Japanese producers with consumers around the world.</span></p>
+      <p><span data-ja>伝統と革新を融合させながら、日本の食が持つ本来の価値を世界中に広める——それが私たちの使命です。</span><span data-en>Blending tradition with innovation, our mission is to share the authentic value of Japanese food with the world.</span></p>
+    </div>
+
+  </section>
+
+
+  <section id="bases" aria-labelledby="bases-heading">
+    <div class="section-header">
+      <p class="section-eyebrow">Bases</p>
+      <h2 id="bases-heading">
+        <span data-ja>活動拠点</span>
+        <span data-en>Our Bases</span>
+      </h2>
+      <div class="wa-rule"><span>Bases</span></div>
+    </div>
+    <div class="bases-grid">
+      <div class="base-item">
+        <div>
+          <h4>Tokyo</h4>
+          <p><span data-ja>ビジネス開発・海外バイヤー対応の中核拠点。国内外のパートナーとの連携を推進します。</span><span data-en>Our Tokyo hub drives business development and overseas buyer relations, coordinating with partners both domestically and internationally.</span></p>
+        </div>
+      </div>
+      <div class="base-item">
+        <div>
+          <h4>Wakayama</h4>
+          <p><span data-ja>和歌山県の豊かな農産物・特産品と直接つながる本社機能。産地との信頼関係を基盤に活動しています。</span><span data-en>Our Wakayama headquarters connects directly with the region's abundant produce and specialty products, built on deep trust with local producers.</span></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact" aria-labelledby="contact-heading">
+    <div class="section-header">
+      <p class="section-eyebrow">Contact</p>
+      <h2 id="contact-heading">
+        <span data-ja>お問い合わせ</span>
+        <span data-en>Get in Touch</span>
+      </h2>
+      <div class="wa-rule"><span>Contact</span></div>
+    </div>
+    <p class="contact-desc">
+      <span data-ja>事業に関するご相談・パートナーシップのご提案など、<br>お気軽にご連絡ください。</span>
+      <span data-en>For business inquiries, partnership proposals,<br>or any questions, please feel free to reach out.</span>
+    </p>
+    <a href="mailto:mikuri@39company.jp" class="contact-link" aria-label="メールでお問い合わせ">
+      <span data-ja>メールを送る</span>
+      <span data-en>Send an Email</span>
+    </a>
+    <p class="contact-email-note">mikuri@39company.jp</p>
+  </section>
+
+  <footer>
+    <img class="footer-logo" src="logo.png" alt="39CO ロゴ" width="90">
+    <div class="footer-divider"></div>
+    <p>TOKYO &amp; WAKAYAMA, JAPAN</p>
+    <p>© 2019–2026 株式会社39COMPANY. All rights reserved.</p>
+    <p class="footer-copy">Unauthorized reproduction or republication of content from this website is strictly prohibited.</p>
+  </footer>
+  <script>
+    function setLang(lang) {
+      document.body.className = 'lang-' + lang;
+      var r = document.getElementById('html-root');
+      if(r) r.lang = lang;
+      var bja = document.getElementById('btn-ja');
+      var ben = document.getElementById('btn-en');
+      if(bja) bja.classList.toggle('active', lang==='ja');
+      if(ben) ben.classList.toggle('active', lang==='en');
+      localStorage.setItem('39co-lang', lang);
+    }
+    (function(){
+      var saved = localStorage.getItem('39co-lang');
+      if(saved==='en') setLang('en');
+    })();
+    function toggleMenu(){
+      document.getElementById('hamburger').classList.toggle('open');
+      document.getElementById('mobile-nav').classList.toggle('open');
+    }
+    function closeMenu(){
+      document.getElementById('hamburger').classList.remove('open');
+      document.getElementById('mobile-nav').classList.remove('open');
+    }
+    window.addEventListener('resize',function(){ if(window.innerWidth>900) closeMenu(); });
+
+    // ===== ヒーロー スライドショー =====
+    (function() {
+      var INTERVAL   = 4500;   // 表示時間(ms)
+      var TRANSITION = 1000;   // フェード時間(ms) ← CSSと合わせる
+      var MIN_LOADED = 2;      // 最低この枚数読み込んでから開始
+
+      var allSlides = Array.from(document.querySelectorAll('.hero-bg-img, .hero-slide'));
+      if (!allSlides.length) return;
+
+      // シャッフル
+      for (var i = allSlides.length - 1; i > 0; i--) {
+        var j = Math.floor(Math.random() * (i + 1));
+        var t = allSlides[i]; allSlides[i] = allSlides[j]; allSlides[j] = t;
+      }
+
+      var current  = 0;
+      var timer    = null;
+      var isTransitioning = false;
+
+      // 読み込み済み枚数カウント
+      var loadedCount = 0;
+      function onLoad() {
+        loadedCount++;
+        if (loadedCount === MIN_LOADED) startShow();
+      }
+
+      // 各画像の読み込みを監視（遅延読み込み）
+      allSlides.forEach(function(img, idx) {
+        if (idx === 0) {
+          // 最初の1枚はすぐ表示
+          img.addEventListener('load', function() {
+            img.classList.add('hero-slide-active');
+            onLoad();
+          });
+          if (img.complete && img.naturalWidth) {
+            img.classList.add('hero-slide-active');
+            onLoad();
+          }
+        } else if (idx === 1) {
+          // 2枚目も先読み
+          img.addEventListener('load', onLoad);
+          if (img.complete && img.naturalWidth) onLoad();
+        }
+        // 3枚目以降はlazyで読み込む
+        if (idx >= 2) {
+          img.loading = 'lazy';
+        }
+      });
+
+      // タイムアウト保険（3秒待っても読み込まなければ強制開始）
+      setTimeout(function() {
+        if (!timer) startShow();
+      }, 3000);
+
+      function startShow() {
+        if (timer) return; // 二重起動防止
+        // 最初の1枚を表示
+        allSlides[0].classList.add('hero-slide-active');
+        timer = setInterval(next, INTERVAL);
+      }
+
+      function next() {
+        if (isTransitioning) return; // 前のトランジション中はスキップ
+        isTransitioning = true;
+
+        var leaving  = allSlides[current];
+        current      = (current + 1) % allSlides.length;
+        var entering = allSlides[current];
+
+        // entering を下に表示してからleavingをフェードアウト
+        entering.classList.remove('hero-slide-entering');
+        entering.classList.add('hero-slide-active');
+
+        // 少し遅らせてleavingをフェードアウト（2枚重なりを防ぐ）
+        setTimeout(function() {
+          leaving.classList.remove('hero-slide-active');
+          leaving.classList.add('hero-slide-leaving');
+        }, 50);
+
+        // トランジション完了後にクラスをリセット
+        setTimeout(function() {
+          leaving.classList.remove('hero-slide-leaving');
+          isTransitioning = false;
+        }, TRANSITION + 100);
+      }
+    })();
+  </script>
+</body>
+</html>
